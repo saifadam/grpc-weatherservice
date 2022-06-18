@@ -1,0 +1,27 @@
+syntax = "proto3";
+ 
+package weather;
+ 
+service WeatherService{
+   rpc GetTemperature(City) returns (Temperature) {}
+   rpc GetHumidity(City) returns (RelHumidity) {}
+   rpc GetDetailed(City) returns (Detailed) {}
+}
+ 
+message City{
+ string name = 1;
+}
+
+message Temperature{
+ float fahrenheit = 1;
+ float celcius = 2;
+}
+
+message RelHumidity {
+ float percentage = 1;
+}
+
+message Detailed {
+   Temperature temperature = 1;
+   RelHumidity rel_humidity = 2;
+}
