@@ -24,7 +24,7 @@ class WeatherService(pb2_grpc.WeatherServiceServicer):
 
     def GetDetailed(self, request, context):
         city_name = request.name
-        print("Humidity request for : {}".format(city_name))
+        print("Detailed weather request for : {}".format(city_name))
         tf, tc = get_temperature(city_name)
         relhum = get_rel_humidity(city_name)
         t1 = pb2.Temperature(celcius=tc, fahrenheit=tf)
